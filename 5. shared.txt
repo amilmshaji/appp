@@ -1,0 +1,55 @@
+public class MainActivity extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        EditText txt1=(EditText) findViewById(R.id.txt1);
+        EditText txt2=(EditText) findViewById(R.id.txt2);
+        Button btn =(Button) findViewById(R.id.btn);
+        SharedPreferences sh=getSharedPreferences("userinfo", Context.MODE_PRIVATE);
+        btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String a=txt1.getText().toString();
+                String b=txt2.getText().toString();
+                if(a.length()==0 && b.length()==0){
+                    Toast.makeText(MainActivity.this,"Please enter Email and Password",Toast.LENGTH_LONG).show();
+                }
+                else{
+                    SharedPreferences.Editor x=sh.edit();
+                    SharedPreferences.Editor y=sh.edit();
+                    x.putString("email",a);
+                    y.putString("pass",b);
+                    x.commit();
+                    y.commit();
+                    Intent i = new Intent(getApplicationContext(),MainActivity2.class);
+                    startActivity(i);
+
+                }
+            }
+        });
+    }
+}
+
+ public class MainActivity2 extends AppCompatActivity {
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main2);
+
+        TextView txt1=(TextView) findViewById(R.id.txt1);
+        TextView txt2=(TextView) findViewById(R.id.txt2) ;
+        Button btn=(Button) findViewById(R.id.btn5);
+
+        SharedPreferences sh=getSharedPreferences("Userinfo", Context.MODE_PRIVATE);
+        String email=sh.getString("email","");
+        String pass=sh.getString("pass","");
+
+        txt1.setText(email);
+        txt2.setText(pass);
+
+    }
+}
