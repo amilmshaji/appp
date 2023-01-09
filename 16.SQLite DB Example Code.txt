@@ -49,7 +49,7 @@ public class DBhelper extends SQLiteOpenHelper {
         cv.put("dob",dob);
         Cursor cur=DB.rawQuery("select * from userdetails where name=?",new String[]{name});
         if(cur.getCount()>0){
-            long result = DB.delete("userdetails","name=?",cv,new String[]{name});
+            long result = DB.delete("userdetails",cv,"name=?",new String[]{name});
             if(result == -1){
                 return false;
 
