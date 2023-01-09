@@ -8,6 +8,41 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+    <FrameLayout
+        android:id="@+id/fragment"
+        android:layout_width="match_parent"
+        android:layout_height="600dp"
+        tools:ignore="MissingConstraints"
+        android:background="@color/black"
+        android:backgroundTint="@color/black"/>
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="130dp"
+        android:layout_height="75dp"
+        tools:ignore="MissingConstraints"
+        android:text="1st Fragment"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginStart="50dp"/>
+    <Button
+        android:id="@+id/btn2"
+        android:layout_width="130dp"
+        android:layout_height="75dp"
+        tools:ignore="MissingConstraints"
+        android:text="2nd Fragment"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="30dp"
+        android:layout_marginEnd="50dp"/>
+
+</RelativeLayout>
 
 public class MainActivity extends AppCompatActivity {
 
